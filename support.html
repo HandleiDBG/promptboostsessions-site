@@ -10,6 +10,29 @@
   </style>
 </head>
 <body>
+  <div id="checkout-message" style="display:none; padding:12px 16px; border-radius:10px; margin-bottom:20px;"></div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const checkout = params.get("checkout");
+  const box = document.getElementById("checkout-message");
+
+  if (checkout === "success") {
+    box.style.display = "block";
+    box.style.background = "#ecfdf5";
+    box.style.border = "1px solid #10b981";
+    box.style.color = "#065f46";
+    box.textContent = "Payment confirmed. You can return to PromptBoost Sessions and refresh your license.";
+  }
+
+  if (checkout === "cancelled") {
+    box.style.display = "block";
+    box.style.background = "#fff7ed";
+    box.style.border = "1px solid #f97316";
+    box.style.color = "#9a3412";
+    box.textContent = "Checkout was cancelled. You can return to PromptBoost Sessions and try again anytime.";
+  }
+</script>
   <h1>PromptBoost Sessions Support</h1>
   <p>
     Need help with PromptBoost Sessions? Contact us at:
